@@ -1,0 +1,16 @@
+<div class="alert alert-info">
+  <strong><%= serverInfo.get("name") %></strong>&nbsp;&nbsp;&nbsp;
+  <strong>Players:</strong><%= serverInfo.get("currentPlayerCount") %>/<%= serverInfo.get("maxPlayerCount") %>&nbsp;&nbsp;&nbsp;
+  <strong>Map:</strong><%= serverInfo.get("currentMapExternalName") %>&nbsp;&nbsp;&nbsp;
+  <strong>Gamemode:</strong><%= serverInfo.get("gamemode") %>
+  <br>
+  <strong>Round:</strong><%= serverInfo.get("roundsPlayed") %>/<%= serverInfo.get("roundsTotal") %>&nbsp;&nbsp;
+  <strong>Ranked:</strong><%= serverInfo.get("ranked") %>&nbsp;&nbsp;
+  <strong>Punkbuster:</strong><%= serverInfo.get("punkbuster") %>&nbsp;&nbsp;
+  <strong>Game Password:</strong><%= serverInfo.get("hasGamePassword") %>&nbsp;&nbsp;
+  <strong>Uptime:</strong><%= serverUpTime.days %>d&nbsp;<%= serverUpTime.hours %>h&nbsp;<%= serverUpTime.minutes %>m&nbsp;<%= serverUpTime.seconds %>s&nbsp;   
+  <strong>Round time:</strong><%= roundTime.hours %>h&nbsp;<%= roundTime.minutes %>m&nbsp;<%= roundTime.seconds %>s&nbsp;   
+  <br>
+  <strong>Team 1 Score:</strong><%= serverInfo.get("team1Score") %>&nbsp;&nbsp;&nbsp;
+  <strong>Team 2 Score:</strong><%= serverInfo.get("team2Score") %>&nbsp;&nbsp;&nbsp;
+</div>

@@ -1,0 +1,78 @@
+<!-- Build a modal div for each admin so we capture the ID used to remove the admin -->
+<% _.each(admins, function(admin){ %>
+  <div class="modal hide fade" id="adminRemoveModal<%= admin.get('id') %>">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>Remove admin <%= admin.get('username') %> ?</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to remove the admin <%= admin.get('username') %> ?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" data-dismiss="modal">cancel</button>          
+      <a href="#/removeAdmin/<%= admin.get('id') %>" class="btn btn-primary">remove</a>
+    </div>
+  </div>
+<% }); %>
+<h3>Admins</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(admins, function(admin) { %>
+      <tr>
+        <td>
+          <a href="javascript:void(0)" class="admin" id="<%= admin.get('id') %>"><%= admin.get("username") %></a>
+          <div class="permissions" id="permissions<%= admin.get('id') %>">
+            <!--  checkbox for permissions -->
+            <div class="control-group">
+              <label class="control-label" for="optionsCheckboxList"></label>
+              <div id="permissionsCheckbox" class="controls">
+              <% _.each(permissions, function(permission) { %>
+                <label class="checkbox">
+                <!--  determine if the user already has this permission -->
+                <% if(_.include(admin.get('permissions'), permission.get('name')) == true) { %>
+                  <input type="checkbox" value="<%= permission.get('name') %>" class="filterPermission" checked="checked" id="<%= admin.get('id') %>"><%= permission.get('description') %>                
+                <% } else { %>
+                  <input type="checkbox" value="<%= permission.get('name') %>" class="filterPermission" id="<%= admin.get('id') %>"><%= permission.get('description') %>
+                <% } %>
+                </label>              
+              <% }); %>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td><div class="adminStatus"></div>
+          <% if(admin.get('connected') == true) { %>
+            <span class='label label-success'>Connected</span>
+          <% } else { %>
+            <span class='label label-important'>Disconnected</span>
+          <% } %>
+        </td>        
+        <td>
+          <ul class="the-icons">
+            <li>
+              <a href="#adminRemoveModal<%= admin.get('id') %>" rel="tooltip" title="remove admin" data-toggle="modal"><i id='<%= admin.get("id") %>' class="icon-trash"></i></a>             
+            </li>
+           </ul>
+         </td>     
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<table class="table table-condensed">
+  <thead>
+  </thead>
+     <tr>
+         <td><input id="adminUsername" class="input-medium" placeholder="admin username" type="text"/></td> 
+         <td>
+           <button id="addAdminButton" class="btn btn-primary addAdmin" href="javascript:void(0)">add</button>
+         </td>
+     </tr> 
+  </tbody>
+</table>

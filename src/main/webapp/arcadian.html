@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Arcadian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../css/validationEngine.jquery.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/jquery.dataTables.css" rel="stylesheet">
+    <link href="../css/jquery.dataTables_themeroller.css" rel="stylesheet">
+    <!--  https://github.com/addyosmani/jquery-ui-bootstrap -->
+    <link href="../css/jquery-ui-1.8.16.bootstrap.custom.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/arcadian.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script data-main="js/main" src="js/libs/require/2.0.1/require.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Arcadian</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#/servers">Servers</a></li>
+              <li><a href="#/profile">Profile</a></li>
+              <li><a href="#/about">About</a></li>
+            </ul>
+            <p id="username" class="navbar-text pull-right"><a href="../j_spring_security_logout">logout</a>&nbsp;&nbsp;&nbsp;&nbsp;Logged in as </p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div id="details" class="nav">
+      <!-- subnav goes here -->  
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+        </div><!--/span-->
+        <div class="span10">
+          <!--  this is #server-info and displays server details -->
+          <div id="server-info">
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+    </div><!--/container-->
+    
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+            <div id="update-alert">
+            </div>
+            <!--  this is #page and is used by requirejs to load routed events and their views -->
+            <div id="page">
+              Loading....
+            </div>
+        </div><!--/span-->
+      </div><!--/row-->
+      <footer>
+        <p>&copy;Steelthread Software, Inc.</p>
+      </footer>
+    </div><!--/.fluid-container-->
+    <!--  This is probably incorrect to define JQuery here since requirejs loads it -->
+    <!--  without defining it here bootstrap will not work -->
+    <script src="js/libs/jquery/1.7.1/jquery-min.js"></script>
+    <script src="js/libs/bootstrap/2.0.1/bootstrap.min.js"></script>
+    
+    <!-- Hide some divs for use later -->
+    <script>
+      $("#update-alert").hide();
+    </script>
+    
+  </body>
+</html>

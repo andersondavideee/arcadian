@@ -1,0 +1,398 @@
+<list>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.list</command>
+    <mapperName>mapListMapper</mapperName>
+    <description>Returns entire map list</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MAPLIST</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.save</command>
+    <description>Saves map list to disk</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MAPLIST_SAVE</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>serverinfo</command>
+    <mapperName>serverInfoMapper</mapperName>
+    <description>Query for brief server info</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>SERVERINFO</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.serverName</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set the server name</description>
+    <datatype>STRING</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>SERVERNAME</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.gamePassword</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set the game password for the server</description>
+    <datatype>STRING</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>GAMEPASSWORD</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.autoBalance</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if the server should autobalance</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>AUTOBALANCE</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.roundStartPlayerCount</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set minimum numbers of players to go from preround to in-round</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>ROUNDSTARTPLAYERCOUNT</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.roundRestartPlayerCount</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set minimum numbers of players to go from in-round to preround</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>ROUNDRESTARTPLAYERCOUNT</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.friendlyFire</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if the server should allow team damage</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>FRIENDLYFIRE</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.maxPlayers</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set desired maximum number of players</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MAXPLAYERS</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.bannerUrl</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>TODO: document</description>
+    <datatype>STRING</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>BANNERURL</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.serverDescription</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>TODO: document</description>
+    <datatype>STRING</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>SERVERDESCRIPTION</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.killCam</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if killcam is enabled</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>KILLCAM</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.miniMap</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if minimap is enabled</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MINIMAP</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.hud</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if HUD is enabled</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>HUD</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.crossHair</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if crosshair for all weapons is enabled</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>CROSSHAIR</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.3dSpotting</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if spotted targets are visible in the 3d-world</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>THREEDSPOTTING</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.miniMapSpotting</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if spotted targets are visible on the minimap</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MINIMAPSPOTTING</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.nameTag</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if nametags should be displayed</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>NAMETAG</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.3pCam</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if allowing to toggle to third person vehicle cameras</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>THREEPCAM</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.regenerateHealth</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if health regeneration should be active</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>REGENERATEHEALTH</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.teamKillCountForKick</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set number of teamkills allowed during a round</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>TEAMKILLCOUNTFORKICK</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.teamKillValueForKick</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set max kill-value allowed for a player before he/she is kicked</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>TEAMKILLVALUEFORKICK</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.teamKillValueIncrease</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set kill-value increase for a teamkill</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>TEAMKILLVALUEINCREASE</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.teamKillValueDecreasePerSecond</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set kill-value decrease per second</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>TEAMKILLVALUEDECREASEPERSECOND</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.teamKillKickForBan</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set number of team-kill kicks that will lead to permaban</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>TEAMKILLVALUEKICKFORBAN</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.idleTimeout</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set idle timeout</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>IDLETIMEOUT</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.idleBanRounds</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set how many rounds idle timeout should ban (if at all)</description>
+    <datatype>INTEGER</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>IDLEBANROUNDS</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.vehicleSpawnAllowed</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set whether vehicles should spawn in-game</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>VEHICLESPAWNALLOWED</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.vehicleSpawnDelay</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set vehicle spawn delay scale factor</description>
+    <datatype>DOUBLE</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>VEHICLESPAWNDELAY</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.soldierHealth</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set soldier max health scale factor</description>
+    <datatype>DOUBLE</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>SOLDIERHEALTH</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.playerRespawnTime</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set player respawn time scale factor</description>
+    <datatype>DOUBLE</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>PLAYERRESPAWNTIME</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.playerManDownTime</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set player man-down time scale factor</description>
+    <datatype>DOUBLE</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>PLAYERMANDOWNTIME</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.bulletDamage</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set bullet damage scale factor</description>
+    <datatype>DOUBLE</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>BULLETDAMAGE</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>vars.onlySquadLeaderSpawn</command>
+    <mapperName>serverVarMapper</mapperName>
+    <description>Set if players can only spawn on their squad leader</description>
+    <datatype>BOOLEAN</datatype>
+    <commandType>SERVER_VAR</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>ONLYSQUADLEADERSPAWN</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>admin.ListPlayers</command>
+    <mapperName>playerListMapper</mapperName>
+    <description>List of players on the server</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>PLAYERLIST</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>admin.kickPlayer</command>
+    <description>Kick player 'soldier name' from server</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>KICKPLAYER</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>  
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.remove</command>
+    <description>Removes the map at offset 'index' from the maplist</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>REMOVEMAP</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.setNextMapIndex</command>
+    <description>Set which map to switch to at end of current round</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>NEXTMAP</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.runNextRound</command>
+    <description>Abort current round and move on to next</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>RUNNEXTROUND</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+    <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.add</command>
+    <description>Add map to server</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>ADDMAP</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>mapList.restartRound</command>
+    <description>Restarts the current round, without going through the end-of-round sequence</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>RESTARTROUND</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>    
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>admin.movePlayer</command>
+    <description>Move a player to another team and squad</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>MOVEPLAYER</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>    
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>version</command>
+    <description>Reports game server type, and build ID</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>VERSION</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>admin.say</command>
+    <description>Send a chat message to players. The message must be less than 128 characters long</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>SAY</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>admin.yell</command>
+    <description>Show a large on-screen message for a group of players</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>YELL</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>      
+  <org.steelthread.arcadian.domain.relational.Command>
+    <command>banList.add</command>
+    <description>Add player to ban list for a certain amount of time</description>
+    <commandType>MISC</commandType>
+    <serverType>BATTLEFIELD3</serverType>
+    <commandConstant>BAN</commandConstant>
+  </org.steelthread.arcadian.domain.relational.Command>
+</list>

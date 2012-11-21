@@ -1,0 +1,12 @@
+<ul class="nav nav-pills">
+  <li><a href="#/servers/<%= server.get("id") %>/maps">Map List</a></li>
+  <li><a href="#/players/<%= server.get("id") %>">Players</a></li>
+  <li><a href="#/serverVars/<%= server.get("id") %>">Configuration</a></li>
+  <li><a href="#/events/<%= server.get("id") %>">Events</a></li>
+  <li><a href="#/commands/<%= server.get("id") %>">Chat/Command</a></li>
+  <% if(server.get('currentOwner') == true) { %>
+    <li><a href="#/admins/<%= server.get("id") %>">Admins</a></li>
+  <% } else { %>    
+    <li><a href="#/adminPermissions/<%= server.get("id") %>">Admin Permissions</a></li>
+  <% } %>
+</ul>

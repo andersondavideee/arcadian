@@ -1,0 +1,31 @@
+<h3>Admin Permissions</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(permissions, function(permission) { %>
+      <tr>
+        <!--  determine if the user already has this permission -->
+        <% if(_.include(admin.get('permissions'), permission.get('name')) == true) { %>
+        <td>
+          <%= permission.get('description') %>
+        </td>
+        <td>
+          <img src="../images/Done.png"/>                
+        </td>
+        <% } else { %>
+        <td>
+          <%= permission.get('description') %>
+        </td>
+        <td>
+          <img src="../images/Remove.png"/>
+        </td>
+        <% } %>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

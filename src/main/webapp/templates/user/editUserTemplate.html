@@ -1,0 +1,64 @@
+<form id="editUserForm">
+  <div class="control-group">
+    <label class="control-label">Email</label>
+    <div class="controls">
+      <input class="validate[required,custom[email]]" id="email" type="text" value='<%= user.get("email") %>'>
+    </div>
+    <button id="saveButton" class="btn btn-small btn-primary saveProfile">Save</button>
+  </div>
+</form>
+
+<form id="changePasswordForm">
+  <div class="control-group">
+    <label class="control-label">Old Password</label>
+    <div class="controls">
+      <input class="validate[required,custom[onlyLetterDigitDashUnderscore],minSize[6], maxSize[64]]" id="oldPassword" type="password" value="">
+    </div>
+    <label class="control-label">New Password</label>
+    <div class="controls">
+      <input class="validate[required,custom[onlyLetterDigitDashUnderscore],minSize[6], maxSize[64]]" id="newPassword" type="password" value="">
+    </div>
+    <label class="control-label">Confirm New Password</label>
+    <div class="controls">
+      <input class="validate[required,custom[onlyLetterDigitDashUnderscore],minSize[6], maxSize[64]]" id="confirmNewPassword" type="password" value="">
+    </div>
+    <button id="changePasswordButton" class="btn btn-small btn-primary changePassword">Change Password</button>
+  </div>
+</form>
+
+<script>
+  // disable button until validation completes
+  $('#saveButton').attr("disabled", true)
+  $('#changePasswordButton').attr("disabled", true)
+  
+  $(document).ready(function(){
+    $("#editUserForm").validationEngine('attach', 
+        {  promptPosition : "bottomRight", 
+           scroll: false, 
+           autoHidePrompt: true, 
+           autoHideDelay: 5000, 
+           onSuccess: function(){
+             $('#saveButton').attr("disabled", false);
+           }, 
+           onFailure: function(){
+             $('#saveButton').attr("disabled", true);
+           } 
+        });
+  });
+
+  $(document).ready(function(){
+    $("#changePasswordForm").validationEngine('attach', 
+        {  promptPosition : "bottomRight", 
+           scroll: false, 
+           autoHidePrompt: true, 
+           autoHideDelay: 5000, 
+           onSuccess: function(){
+             $('#changePasswordButton').attr("disabled", false);
+           }, 
+           onFailure: function(){
+             $('#changePasswordButton').attr("disabled", true);
+           } 
+        });
+  });
+
+</script>

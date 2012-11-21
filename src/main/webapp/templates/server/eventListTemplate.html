@@ -1,0 +1,26 @@
+<!--  checkbox for filter events -->
+<div class="control-group">
+  <label class="control-label" for="optionsCheckboxList"><b>filter</b></label>
+  <div id="eventCheckbox" class="controls">
+  <% _.each(filterEvents, function(filterEvent) { %>
+    <% if(filterEvent.checked == true) { %>
+      <label class="checkbox inline"><input type="checkbox" value="<%= filterEvent.value %>" class="filterEvent" checked="checked"><%= filterEvent.name %></label>
+    <% } else { %>
+      <label class="checkbox inline"><input type="checkbox" value="<%= filterEvent.value %>" class="filterEvent"><%= filterEvent.name %></label>
+    <% } %>
+  <% }); %>
+  </div>
+</div>
+<hr>
+<table class="table table-striped table-condensed">
+  <tbody>
+<% _.each(events, function(event){ %>
+   <tr>
+     <td class="span2"><%= event.get("eventName") %></td>     
+     <td><code><%= event.get("event") %></code></td>
+     <%  var date = new Date(event.get('date')) %>
+     <td class="span2"><%= date.toString() %></td>
+   </tr>
+<% }); %>
+  </tbody>
+</table>

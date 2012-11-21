@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+  <mapping wildcard="false"> 
+    <class-a>org.steelthread.arcadian.domain.relational.Server</class-a>   
+    <class-b>org.steelthread.arcadian.domain.logical.Server</class-b>
+      <field>
+        <a>name</a>
+        <b>name</b>
+      </field>
+      <field>
+        <a>id</a>
+        <b>id</b>
+      </field>
+      <field>
+        <a>port</a>
+        <b>port</b>
+      </field>
+      <field>
+        <a>host</a>
+        <b>host</b>
+      </field>
+      <field>
+        <a>serverType</a>
+        <b>serverType</b>
+      </field>
+  </mapping>
+  
+</mappings>  

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <debug/>
+
+    <global-method-security pre-post-annotations="enabled">
+      <expression-handler ref="expressionHandler"/>
+    </global-method-security>
+
+    <!-- apply patterns to different resources -->
+    <!--  example 
+    <http pattern="/css/**" security="none"/>
+    -->
+
+    <http use-expressions="true">
+
+        <intercept-url pattern="/js/**" access="isAuthenticated()" />
+        <intercept-url pattern="/templates/**" access="isAuthenticated()" />
+        <intercept-url pattern="/arcadian.html" access="isAuthenticated()" />
+        
+        <!-- RESTful APIs -->
+        <intercept-url pattern="/servers/**" access="isAuthenticated()" />
+        <intercept-url pattern="/players/**" access="isAuthenticated()" />
+        <intercept-url pattern="/data/**" access="isAuthenticated()" />
+        <intercept-url pattern="/users/create" access="permitAll" />
+        <intercept-url pattern="/users/enableUser/**" access="permitAll" />
+        <intercept-url pattern="/users/**" access="isAuthenticated()" />
+
+        <form-login login-page="/signin.jsp" default-target-url="/arcadian.html" always-use-default-target="true" authentication-failure-url="/signin.jsp?error=true"/>
+        
+        <logout logout-success-url="/signin.jsp" delete-cookies="JSESSIONID"/>
+        
+        <remember-me />
+
+        <!--
+        <session-management invalid-session-url="/login.jsp">
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+        </session-management>
+        -->
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+      <authentication-provider ref="daoAuthenticationProvider"/>
+    </authentication-manager>
+
+    <beans:bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+      <beans:property name="permissionEvaluator" ref="permissionEvaluator"/>
+    </beans:bean>
+    
+</beans:beans>

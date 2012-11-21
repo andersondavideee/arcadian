@@ -1,0 +1,42 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>command</th>
+      <th>description</th>
+      <th>value</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% _.each(serverVars, function(serverVar){ %>
+   <tr>
+     <td><%= serverVar.get("command") %></td>
+     <td><%= serverVar.get("description") %></td>
+     <td>
+     <% if(serverVar.get('datatype') == 'BOOLEAN') { %>
+           <div class="control-group">
+             <div class="controls" >
+               <select class="span2" id='<%= serverVar.get("id") %>UpdateValue'>
+                 <% if(serverVar.get('value') == 'true') { %>
+                   <option value='true' selected="selected">true</option>            
+                 <% } else { %>
+                   <option value='true'>true</option>
+                 <% } %>
+                 <% if(serverVar.get('value') == 'false') { %>
+                   <option value='false' selected="selected">false</option>            
+                 <% } else { %>
+                 <option value='false'>false</option>
+                 <% } %>
+               </select>
+             </div>
+           </div>     
+     <% } else { %>
+            <input type="text" class="input-small" id='<%= serverVar.get("id") %>UpdateValue' value="<%= serverVar.get("value") %>">
+     <% } %>
+     </td>   
+     <td></td>
+     <td><ul class="the-icons"><li><a href="javascript:void(0)" rel="tooltip" title="update server var"><i id='<%= serverVar.get("id") %>' class="icon-edit editServerVar"></i></a></li></ul></td>
+   </tr>
+  <% }); %>
+  </tbody>
+</table>

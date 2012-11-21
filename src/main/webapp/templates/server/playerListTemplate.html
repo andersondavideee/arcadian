@@ -1,0 +1,173 @@
+<!--  div so we can trigger a click event if we need to ban a player -->
+<div id="banPlayer"></div>
+<input id="banPlayerId" type="hidden" />
+<input id="banType" type="hidden" />
+<input id="banValue" type="hidden" />
+<% _.each(teamArray, function(teamVar) { %>
+  <!-- generic dialog for banning players -->
+  <% _.each(teamVar.team.modelCollection.models, function(player) { %>
+   <div id="<%= player.get('id') %>dialog-form" title="ban player">
+     <form>
+        <div class="control-group">
+          <label class="control-label">ban type</label>
+          <div class="controls">
+            <label class="radio">
+              <input type="radio" name="banType<%= player.get('id') %>" value="perm" checked>permanent
+            </label>
+            <label class="radio">
+              <input type="radio" name="banType<%= player.get('id') %>" value="rounds">rounds
+            </label>
+            <label class="radio">
+              <input type="radio" name="banType<%= player.get('id') %>" value="seconds">seconds
+            </label>
+          </div>
+        </div>
+       <fieldset>
+         <label for="banValue<%= player.get('id') %>">rounds or seconds</label>
+         <input type="text" id="banValue<%= player.get('id') %>" class="input-small" />
+       </fieldset>
+     </form> 
+   </div> 
+  <% }); %>
+  <h3><%= teamVar.name %></h3>
+  <table id="<%= teamVar.tableName %>">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>score</th>
+        <th>kills</th>
+        <th>deaths</th>
+        <th>k/d</th>
+        <th>squad</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% _.each(teamVar.team.modelCollection.models, function(player) { %>
+        <tr>
+          <td><%= player.get("name") %></td>
+          <td><%= player.get("score") %></td>
+          <td><%= player.get("kills") %></td>
+          <td><%= player.get("deaths") %></td>
+          <td><%= player.get("killDeathRatio") %></td>
+          <td><%= player.getSquadCharacter() %></td>
+          <td>
+            <div class="btn-group">
+              <button id="<%= player.get('id') %>" class="btn btn-small btn-danger kickPlayer">kick</button>
+              <button id="<%= player.get('id') %>" class="btn btn-small btn-info dropdown-toggle" data-toggle="dropdown">move <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <% _.each(teamMoveArray, function(teamMove) { %>              
+                  <% _.each(teamMove, function(move) { %>
+                    <li id="<%= player.get('id') %>:<%= move.teamId %>:<%= move.squadId %>" class="movePlayer"><a href="javascript:void(0)"><%= move.name %> <%= move.teamId %> Squad <%= move.squadCharacter %></a></li>
+                  <% }); %>
+                   <li class="divider"></li>
+                <% }); %>   
+              </ul>
+              <button id="<%= player.get('id') %>banDialog" class="btn btn-small btn-inverse banPlayer">ban</button>
+            </div>
+          </td>
+        </tr>
+        <script>
+          $( "#<%= player.get('id') %>dialog-form" ).dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true,
+            buttons: {
+              "ban": function() {
+                $('#banPlayerId').val('<%= player.get('id') %>');
+                var banType = $('input[name=banType<%= player.get('id') %>]:checked').val();
+                $('#banType').val(banType);
+                var banValue = $('#banValue<%= player.get('id') %>').val();
+                $('#banValue').val(banValue);
+                $('#banPlayer').click()
+                $( this ).dialog( "close" );
+              }
+            },
+            close: function() {
+            }
+          });
+          
+          $( "#<%= player.get('id') %>banDialog" ).button().click(function() {
+              $( "#<%= player.get('id') %>dialog-form" ).dialog( "open" );
+          });
+          
+          $("#<%= player.get('id') %>banDialog").removeClass().addClass("btn btn-small btn-inverse");
+        </script>
+      <% }); %>
+    </tbody>
+  </table>
+  <hr>
+<% }); %>
+<h3>Unassigned</h3>
+<table id="team0Table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>score</th>
+      <th>kills</th>
+      <th>deaths</th>
+      <th>k/d</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(team0.modelCollection.models, function(player) { %>
+      <tr>
+        <td><%= player.get("name") %></td>
+        <td><%= player.get("score") %></td>
+        <td><%= player.get("kills") %></td>
+        <td><%= player.get("deaths") %></td>
+        <td><%= player.get("killDeathRatio") %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<script>
+  $(document).ready(function(){
+
+    $('#team0Table').dataTable( {
+      "bPaginate": false,
+      "bInfo": true,
+      "bJQueryUI": false,
+      "bFilter": false,
+      "aaSorting": [[ 1, "desc" ]]
+    } );
+    
+    $('#team1Table').dataTable( {
+      "bPaginate": false,
+      "bInfo": true,
+      "bJQueryUI": false,
+      "bFilter": false,
+      "aaSorting": [[ 1, "desc" ]]
+    } );
+
+    $('#team2Table').dataTable( {
+      "bPaginate": false,
+      "bInfo": true,
+      "bJQueryUI": false,
+      "bFilter": false,
+      "aaSorting": [[ 1, "desc" ]]
+    } );
+
+    $('#team3Table').dataTable( {
+      "bPaginate": false,
+      "bInfo": true,
+      "bJQueryUI": false,
+      "bFilter": false,
+      "aaSorting": [[ 1, "desc" ]]
+    } );
+
+    $('#team4Table').dataTable( {
+      "bPaginate": false,
+      "bInfo": true,
+      "bJQueryUI": false,
+      "bFilter": false,
+      "aaSorting": [[ 1, "desc" ]]
+    } );
+
+});
+</script>

@@ -1,0 +1,21 @@
+<!--  chat messages -->
+<input id="chatMessage" class="input-small span3" placeholder="chat message" type="text"/>&nbsp;
+ <select id="chatSelectAction" class="span2">
+   <option value='SAY'>SAY</option>
+   <option value='YELL'>YELL</option>
+ </select>
+ &nbsp;
+ <select id="chatSelectGroup" class="span2">
+   <option value='all'>ALL</option>
+   <option value='team 1'>TEAM 1</option>
+   <option value='team 2'>TEAM 2</option>
+ </select>
+ &nbsp;
+<a href="javascript:void(0)" rel="tooltip" title="chat"><i class="icon-play-circle chat"></i></a>
+<hr>
+<!--  server commands -->
+<input id="command" class="input-small span3" placeholder="server command" type="text"/>&nbsp;&nbsp;
+<a href="javascript:void(0)" rel="tooltip" title="send server command"><i class="icon-play-circle sendCommand"></i></a>
+
+<!-- this is where the response is displayed after the server command is executed against the server -->
+<div id="response"></div>

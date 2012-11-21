@@ -1,0 +1,42 @@
+<form id="editServerForm">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>host</th>
+      <th>port</th>
+      <th>password</th>
+    </tr>
+  </thead>
+     <tr>
+         <td><input id="serverName" class="input-medium validate[required,custom[onlyLetterDigitDashUnderscore],minSize[1], maxSize[200]]" type="text" value="<%= server.get('name') %>"/></td> 
+         <td><input id="serverHost" class="input-medium validate[required,custom[ipv4]]" type="text" value="<%= server.get('host') %>"/></td>
+         <td><input id="serverPort" class="input-small validate[required,custom[integer]]" type="text" value="<%= server.get('port') %>"/></td>
+         <td><input class="input-small validate[minSize[1]]" id="serverPassword" type="password" value="<%= server.get('password') %>"/></td>
+         <td>
+           <button id="editServerButton" class="btn btn-primary saveServer">save</button>&nbsp;
+           <a class="btn btn-danger" href="/arcadian.html#">cancel</a>
+         </td>
+     </tr> 
+  </tbody>
+</table>    
+</form>
+<script>
+  // disable button until validation completes
+  $('#editServerButton').attr("disabled", true);
+
+  $(document).ready(function(){
+    $("#editServerForm").validationEngine('attach', 
+      { promptPosition : "bottomRight", 
+        scroll: false, 
+        autoHidePrompt: true, 
+        autoHideDelay: 5000,
+        onSuccess: function(){
+          $('#editServerButton').attr("disabled", false);
+        }, 
+        onFailure: function(){
+          $('#editServerButton').attr("disabled", true);
+        }        
+      });
+  });
+</script>

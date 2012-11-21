@@ -1,0 +1,33 @@
+/* Icons
+------------------------- */
+.the-icons {
+  margin-left: 0;
+  list-style: none;
+}
+.the-icons i:hover {
+  background-color: rgba(255,0,0,.25);
+}
+.navbar .brand{
+  float:left;display:block;padding:8px 20px 12px;margin-left:-20px;font-size:15px;font-weight:200;line-height:1;color:#ffffff;
+}
+.large-label {
+    padding: 1px 3px 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-color: #bfbfbf;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* Override for alternating row colors for datatables (http://datatables.net)
+------------------------- */
+table.dataTable tr.odd { 
+  background-color: #ddffdd; 
+}
+table.dataTable tr.even { 
+  background-color: #eeffee;
+}

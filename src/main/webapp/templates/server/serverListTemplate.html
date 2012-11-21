@@ -1,0 +1,118 @@
+<!-- Build a modal div for each server so we capture the server ID used to remove a server -->
+<% _.each(servers, function(server){ %>
+  <div class="modal hide fade" id="serverRemoveModal<%= server.get('id') %>">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>Remove <%= server.get('name') %> Server?</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to remove the <%= server.get('name') %> server?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" data-dismiss="modal">cancel</button>          
+      <a href="#/removeServer/<%= server.get('id') %>" class="btn btn-primary">remove</a>
+    </div>
+  </div>
+<% }); %>
+
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>host</th>
+      <th>port</th>
+      <th>server type</th>
+      <th>status</th>
+      <th>owner/admin</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% _.each(servers, function(server){ %>
+   <tr>
+     <% if(server.get('active') == true) { %>
+     <td><a href="#/serverDetail/<%= server.get("id") %>"><%= server.get("name") %></a></td>
+     <% } else { %>
+     <td><%= server.get("name") %></a></td>
+     <% } %>
+     <td><%= server.get("host") %></td>
+     <td><%= server.get("port") %></td>
+     <td><%= server.get("serverType") %></td>
+     <td><div class="serverStatus"></div>
+     <% if(server.get('active') == true) { %>
+       <span class='label label-success'>Connected</span>
+     <% } else { %>
+       <span class='label label-important'>Disconnected</span>
+     <% } %>
+     </td>
+     <td>
+       <% if(server.get('currentOwner') == true) { %>
+         <span class='label label-info'>owner</span>
+       <% } else { %>
+         <span class='label label-inverse'>admin</span>
+       <% } %>
+     </td>
+     <td>
+       <ul class="the-icons">
+         <li>
+           <% if(server.get('active') == true) { %>
+             <a href="javascript:void(0)" rel="tooltip" title="disconnect"><i id='<%= server.get("id") %>' class="icon-off disconnect"></i></a>
+           <% } else { %>
+             <a href="javascript:void(0)" rel="tooltip" title="connect"><i id='<%= server.get("id") %>' class="icon-play-circle connect"></i></a>
+               <% if(server.get('currentOwner') == true) { %>
+                 <a href="#/editServer/<%= server.get('id') %>" rel="tooltip" title="edit"><i id='<%= server.get("id") %>' class="icon-edit"></i></a>
+                 <a href="#serverRemoveModal<%= server.get('id') %>" rel="tooltip" title="remove server" data-toggle="modal"><i id='<%= server.get("id") %>' class="icon-trash"></i></a>
+               <% } %>
+           <% } %>
+         </li>
+       </ul>
+     </td>
+   </tr>
+  <% }); %>
+  </tbody>
+</table>
+
+<form id="addServerForm">
+<table class="table table-condensed">
+  <thead>
+  </thead>
+     <tr>
+         <td><input id="serverName" class="input-medium validate[required,custom[onlyLetterDigitDashUnderscore],minSize[1], maxSize[200]]" placeholder="name" type="text"/></td> 
+         <td><input id="serverHost" class="input-medium validate[required,custom[ipv4]]" placeholder="host" type="text"/></td>
+         <td><input id="serverPort" class="input-small validate[required,custom[integer]]" placeholder="port" type="text"/></td>
+         <td>
+           <div class="control-group">
+             <div class="controls" >
+               <select id="serverTypeSelect">
+                 <option value='BATTLEFIELD3'>Battlefield 3</option>
+               </select>
+             </div>
+           </div>
+         </td>
+         <td><input class="input-small validate[required]" id="serverPassword" placeholder="password" type="password"/></td>
+         <td>
+           <button id="addServerButton" class="btn btn-primary addServer" href="javascript:void(0)">add</button>
+         </td>
+     </tr> 
+  </tbody>
+</table>    
+</form>
+<script>
+  // disable button until validation completes
+  $('#addServerButton').attr("disabled", true);
+
+  $(document).ready(function(){
+    $("#addServerForm").validationEngine('attach', 
+      { promptPosition : "bottomRight", 
+        scroll: false, 
+        autoHidePrompt: true, 
+        autoHideDelay: 5000,
+        onSuccess: function(){
+          $('#addServerButton').attr("disabled", false);
+        }, 
+        onFailure: function(){
+          $('#addServerButton').attr("disabled", true);
+        }        
+      });
+  });
+</script>

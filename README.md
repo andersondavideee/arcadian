@@ -50,9 +50,8 @@ put your warfile in the correct location (outside of tomcat)
 
 -- install maven
 
--- install git
-  grab the code
-  git clone https://code.google.com/p/arcadian
+-- install git and grab the code
+  git clone git://github.com/fgarsombke/arcadian.git
 
 -- build the code
 mvn clean install -Dmaven.test.skip.exec=true
@@ -60,11 +59,36 @@ mvn clean install -Dmaven.test.skip.exec=true
 -- Seed Data
 cd [arcadian_project_home];
   -- create roles
-  mvn test -Dtest=RolePermissionBootstrapper#createRoles"
+  mvn test -Dtest=RolePermissionBootstrapper#createRoles
   -- create permissions 
-  mvn test -Dtest=RolePermissionBootstrapper#createPermissions"
+  mvn test -Dtest=RolePermissionBootstrapper#createPermissions
   -- Bootstrap Battlefield 3
-  mvn test -Dtest=Battlefield3Bootstrapper#execute"
+  mvn test -Dtest=Battlefield3Bootstrapper#execute
 
 -- Jetty
 mvn jetty:run
+
+-- Git commands
+git clone git://github.com/fgarsombke/arcadian.git
+git push https://github.com/fgarsombke/arcadian.git master
+git pull https://github.com/fgarsombke/arcadian.git master
+git add .
+git status
+git commit -m "mods"
+
+-- Maven Build commands
+mvn jetty:run
+mvn clean install -Dmaven.test.skip.exec=true
+mvn package -Dmaven.test.skip=true
+
+-- Run application
+java -jar target/dependency/jetty-runner.jar target/*.war
+
+-- Heroku deployment commands
+heroku deploy:war --war target/arcadian.war
+
+OR (preferred)
+
+git push heroku OR git push heroku master
+heroku ps:scale web=1
+heroku logs --tail

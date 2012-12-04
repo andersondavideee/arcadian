@@ -65,6 +65,7 @@ public class Battlefield3Bootstrapper extends AbstractTransactionalJUnit4SpringC
     createXPack1Maps(mapDao, gamemodeDao);
     createXPack2Maps(mapDao, gamemodeDao);
     createXPack3Maps(mapDao, gamemodeDao);
+    createXPack4Maps(mapDao, gamemodeDao);
   }
   
   protected void createGamemodes(GamemodeDao gamemodeDao) {
@@ -87,6 +88,9 @@ public class Battlefield3Bootstrapper extends AbstractTransactionalJUnit4SpringC
     
     // XP3
     gamemodeDao.create(new Gamemode(GamemodeType.TankSuperiority0, "Tank Superiority", ServerType.BATTLEFIELD3));
+
+    // XP4
+    gamemodeDao.create(new Gamemode(GamemodeType.Scavenger0, "Scavenger", ServerType.BATTLEFIELD3));
 }
 
   protected void createMaps(MapDao mapDao, GamemodeDao gamemodeDao) {
@@ -158,6 +162,15 @@ public class Battlefield3Bootstrapper extends AbstractTransactionalJUnit4SpringC
     mapDao.create(new Map("XP3_Valley", "Death Valley", ServerType.BATTLEFIELD3, gamemodes));
   }
 
+  protected void createXPack4Maps(MapDao mapDao, GamemodeDao gamemodeDao) {
+    Set<Gamemode> gamemodes = new HashSet<Gamemode>();
+    addStandardXpack4Gamemodes(gamemodes);
+    mapDao.create(new Map("XP4_Quake", "Epicenter", ServerType.BATTLEFIELD3, gamemodes));
+    mapDao.create(new Map("XP4_FD", "Markaz Monolith", ServerType.BATTLEFIELD3, gamemodes));
+    mapDao.create(new Map("XP4_Parl", "Azadi Palace", ServerType.BATTLEFIELD3, gamemodes));
+    mapDao.create(new Map("XP4_Rubble", "Talah Market", ServerType.BATTLEFIELD3, gamemodes));
+  }
+  
   protected void addStandardXpack2Gamemodes(Set<Gamemode> gamemodes) {
     gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.TeamDeathMatchC0));
     gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.GunMaster0));
@@ -175,6 +188,17 @@ public class Battlefield3Bootstrapper extends AbstractTransactionalJUnit4SpringC
     gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.TankSuperiority0));    
   }
 
+  protected void addStandardXpack4Gamemodes(Set<Gamemode> gamemodes) {
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.ConquestLarge0));
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.ConquestSmall0));
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.RushLarge0));
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.SquadRush0));
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.SquadDeathMatch0));    
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.TeamDeathMatch0));    
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.GunMaster0));    
+    gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.Scavenger0));    
+  }
+  
   protected Set<Gamemode> getNormalGamemodes(GamemodeDao gamemodeDao) {
     Set<Gamemode> gamemodes = new HashSet<Gamemode>();
     gamemodes.add(gamemodeDao.findByGamemodeType(GamemodeType.ConquestLarge0));

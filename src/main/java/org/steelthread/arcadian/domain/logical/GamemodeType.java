@@ -14,5 +14,6 @@ public enum GamemodeType {
   TeamDeathMatchC0,
   GunMaster0,
   Domination0,
-  TankSuperiority0; 
+  TankSuperiority0,
+  Scavenger0; 
 }

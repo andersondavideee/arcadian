@@ -8,7 +8,7 @@ psql
 CREATE DATABASE arcadian;
 \q
 -- then run this script to create the tables
-psql -f arcadian/src/main/database/createTables.sql -d arcadian
+psql -f /home/franz/github-arcadian/arcadian/src/main/database/createTables.sql -d arcadian
 -- how to alter a password
 psql
 ALTER USER postgres WITH PASSWORD 'xxxxx';
@@ -33,7 +33,7 @@ psql -f src/main/database/createTables.sql -h ec2-107-22-165-77.compute-1.amazon
 
 -- Add this to .bashrc file for parameters that you want to override
 export DATABASE_URL="postgres://username:password@localhost:5432/databasename" (this is automatically set on Heroku - echo $DATABASE_URL)
-export ARCADIAN_EMAIL_PASSWORD=XXXXXX
+export ARCADIAN_EMAIL_PASSWORD=XXXXXX (set this system property in heroku. how?)
 
 -- in order that you do not need a context in tomcat
 

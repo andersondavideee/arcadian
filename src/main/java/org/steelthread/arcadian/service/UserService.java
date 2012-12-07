@@ -57,7 +57,7 @@ public class UserService {
     user.addRole(role);
     
     userDao.create(user);
-    arcadianUtil.sendEmail(user.getEmail(), "Welcome to Arcadian!", "Click on this link to enable your account:" + " http://mysterious-atoll-7268.herokuapp.com/users/enableUser/" + user.getAuthenticationUUID());
+    arcadianUtil.sendEmail(user.getEmail(), "Welcome to Arcadian!", "Click on this link to enable your account:" + " http://arcadian.herokuapp.com/users/enableUser/" + user.getAuthenticationUUID());
     // send email to me so I can track easily
     arcadianUtil.sendEmail("fgarsombke@yahoo.com", "New User Created!", "User " + user.getUsername() + " with email " + user.getEmail() + " has joined!");
     return "An email has been sent to the email provided. To enable your account click on the URL in the email";
